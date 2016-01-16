@@ -26,8 +26,8 @@ public class Wynajmujacy {
 	
 	private Long idWynajmujacy;
 	private String imie;
-	private String nazwisko;// cena = 0.0;
-	private Long pesel;// ilosc = 0;
+	private String nazwisko;
+	private Long pesel;
 
 	private List<Mieszkania> mieszkania = new ArrayList<Mieszkania>();
 	

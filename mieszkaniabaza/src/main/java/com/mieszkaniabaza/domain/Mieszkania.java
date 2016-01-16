@@ -49,12 +49,6 @@ public class Mieszkania {
 
 	@ManyToOne
 	@JoinColumn(name = "id_Wynajmujacy", nullable = false)
-	public Wynajmujacy getTrumna() {
-	return wynajmujacy;
-	}
-	public void setTrumna(Wynajmujacy wynajmujacy) { this.wynajmujacy = wynajmujacy; }
-	
-	
 
 	public String getUlica() {
 		return ulica;
@@ -77,6 +71,22 @@ public class Mieszkania {
 	}
 	public void setOpis(String opis) {
 		this.opis = opis;
+	}
+
+	public Wynajmujacy getWlasciciel() {
+		return wynajmujacy;
+		// TODO Auto-generated method stub
+		
+	}
+
+	public com.mieszkaniabaza.domain.Wynajmujacy getWynajmujacy() {
+		return wynajmujacy;
+	
+	}
+
+	public void setWynajmujacy(Wynajmujacy wynajmujacy) {
+		this.wynajmujacy = wynajmujacy;
+		
 	}
 }
 
