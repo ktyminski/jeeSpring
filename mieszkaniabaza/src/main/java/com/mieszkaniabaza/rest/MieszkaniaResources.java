@@ -78,13 +78,10 @@ public class MieszkaniaResources{
 	Mieszkania mieszkania = new Mieszkania();
 
 	mieszkania = mm.pobierzPoId(id);
-	try
-	{
+	
+	
 		mm.edytuj(mieszkania, wm.pobierzPoId(wynajmujacy), ulica, cena, opis);
-	}
-	catch(Exception e)
-	{
-	}
+	
 
        return mieszkania;
     }

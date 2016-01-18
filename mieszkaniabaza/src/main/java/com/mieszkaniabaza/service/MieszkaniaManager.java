@@ -2,7 +2,7 @@ package com.mieszkaniabaza.service;
 
 
 
-	import java.util.Date;
+	
 	import java.util.List;
 
 	import javax.ejb.Stateless;

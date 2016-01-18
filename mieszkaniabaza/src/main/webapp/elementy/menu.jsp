@@ -8,7 +8,7 @@
             	<li role="presentation"><a href="${pageContext.request.contextPath}/Mieszkania">Mieszkania</a></li>
             	<li role="presentation"><a href="${pageContext.request.contextPath}/Wynajmujacy">Wynajmujacy</a></li>
           </ul>
-	  <h4 class="text-muted">Wynajem mieszkan</h4>
+	  <h4 class="text-muted">BAZA MIESZKAN</h4>
         </div>
     </div>
 </div>

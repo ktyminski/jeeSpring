@@ -28,8 +28,8 @@
 									    td = $('<td/>');
 									    td.append(
 "<a href='${pageContext.request.contextPath}/PodgladWynajmujacy/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Podgląd </a> "+
-"<a href='${pageContext.request.contextPath}/EdytujWynajmujacy/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edytuj</a> "+
-"<button id="+dane[i].id+" onClick='usun("+dane[i].id+")' type='submit' class='btn btn-xs btn-danger'>Usuń</button>");
+"<a href='${pageContext.request.contextPath}/EdytujWynajmujacy/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'>Edytuj</a> "+
+"<button id="+dane[i].id+" onClick='usun("+dane[i].id+")' type='submit' class='btn btn-xs btn-warning'>Usuń</button>");
 									    tr.append(td);
 									    $(table).append(tr);
 								}
