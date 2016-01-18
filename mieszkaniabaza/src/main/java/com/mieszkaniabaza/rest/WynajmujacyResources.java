@@ -32,13 +32,13 @@ import javax.ws.rs.PUT;
 @Path("/wynajmujacy")
 public class WynajmujacyResources{
     @EJB
-    private WynajmujacyManager tm;
+    private WynajmujacyManager wm;
 
     @GET
     @Path("/dajWszystkie")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Wynajmujacy> dajTrumny() {
-    	 return tm.dajWszystkie();
+    public List<Wynajmujacy> dajWynajmujacy() {
+    	 return wm.dajWszystkie();
     }
 
     @POST
@@ -56,7 +56,7 @@ public class WynajmujacyResources{
         wynajmujacy.setNazwisko(nazwisko);
         wynajmujacy.setPesel(pesel);
 
-        tm.dodaj(wynajmujacy);
+       wm.dodaj(wynajmujacy);
 
         return wynajmujacy;
     }
@@ -65,15 +65,15 @@ public class WynajmujacyResources{
     @Path("/edytuj/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Wynajmujacy edytuj(
-            @PathParam("idWynajmujacy") Long id,
+            @PathParam("id") Long id,
             @FormParam("imie") String imie,
             @FormParam("nazwisko") String nazwisko,
             @FormParam("pesel") Long pesel)
     {
  	Wynajmujacy wynajmujacy = new Wynajmujacy();
 
-	wynajmujacy = tm.pobierzPoId(id);
-	tm.edytuj(wynajmujacy, imie, nazwisko, pesel);
+	wynajmujacy = wm.pobierzPoId(id);
+	wm.edytuj(wynajmujacy, imie, nazwisko, pesel);
 
         return wynajmujacy;
     }
@@ -85,14 +85,14 @@ public class WynajmujacyResources{
     {
         Wynajmujacy wynajmujacy = new Wynajmujacy();
 
-        tm.usun(tm.pobierzPoId(id));
+        wm.usun(wm.pobierzPoId(id));
     }
 
     @GET
     @Path("/podglad/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Wynajmujacy podglad(@PathParam("id") long id) {
-    	 return tm.pobierzPoId(id);
+    	 return wm.pobierzPoId(id);
     }
 
 }

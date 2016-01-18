@@ -25,11 +25,11 @@ package com.mieszkaniabaza.service;
 		public void dodaj(Mieszkania mieszkanie) {
 			mieszkanie.setId(null);
 			em.persist(mieszkanie);
-			Wynajmujacy wynajmujacy = em.find(Wynajmujacy.class, mieszkanie.getWlasciciel().getId());
+			Wynajmujacy wynajmujacy = em.find(Wynajmujacy.class, mieszkanie.getWynajmujacy().getId());
 			em.merge(wynajmujacy);
 		}
 
-		public void edytuj(Mieszkania Mieszkania, Wynajmujacy Wynajmujacy, String ulica, Double cena, String opis) {
+		public void edytuj(Mieszkania Mieszkania, Wynajmujacy Wynajmujacy, String ulica, Integer cena, String opis) {
 			Mieszkania = em.find(Mieszkania.class, Mieszkania.getId());
 			Wynajmujacy tr = em.find(Wynajmujacy.class, Mieszkania.getWynajmujacy().getId());
 			

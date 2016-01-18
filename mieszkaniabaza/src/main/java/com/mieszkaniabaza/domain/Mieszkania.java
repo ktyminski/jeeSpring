@@ -12,25 +12,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
+
+import com.mieszkaniabaza.domain.Wynajmujacy;
+
+
 
 @Entity
 @NamedQueries({ 
-	@NamedQuery(name = "Mieszkania.wszystkie", query = "Select m from Mieszkanie m")
+	@NamedQuery(name = "Mieszkania.wszystkie", query = "Select m from Mieszkania m")
 })
 public class Mieszkania {
 
-	private Long idMieszkania;
+	private Long id;
  	private Wynajmujacy wynajmujacy;
-	private String ulica="";
-	private Double cena = 0.0;
+	private String ulica = "";
+	private Integer cena = 0;
 	private String opis = "";
 
 	 public Mieszkania() {
 	}
 
-	public Mieszkania(Wynajmujacy wynajmujacy, String ulica, Double cena, String opis)
+	public Mieszkania(Wynajmujacy wynajmujacy, String ulica , Integer cena, String opis)
 	{
 	this.wynajmujacy = wynajmujacy;
 	this.ulica = ulica;
@@ -41,28 +44,32 @@ public class Mieszkania {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
-		return idMieszkania;
+		return id;
 	}
-	public void setId(Long idMieszkania) {
-		this.idMieszkania = idMieszkania;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "id_Wynajmujacy", nullable = false)
-
+	@JoinColumn(name = "id_wynajmujacy", nullable = false)
+	public Wynajmujacy getWynajmujacy() {
+	return wynajmujacy;
+	}
+	public void setWynajmujacy(Wynajmujacy wynajmujacy) { this.wynajmujacy=wynajmujacy; }
+	
+	
 	public String getUlica() {
 		return ulica;
 	}
-
 	public void setUlica(String ulica) {
 		this.ulica = ulica;
 	}
 
 	@Min(0)
-	public Double getCena() {
+	public Integer getCena() {
 		return cena;
 	}
-	public void setCena(Double cena) {
+	public void setCena(Integer cena) {
 		this.cena = cena;
 	}
 
@@ -72,22 +79,7 @@ public class Mieszkania {
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
-
-	public Wynajmujacy getWlasciciel() {
-		return wynajmujacy;
-		// TODO Auto-generated method stub
-		
-	}
-
-	public com.mieszkaniabaza.domain.Wynajmujacy getWynajmujacy() {
-		return wynajmujacy;
-	
-	}
-
-	public void setWynajmujacy(Wynajmujacy wynajmujacy) {
-		this.wynajmujacy = wynajmujacy;
-		
-	}
 }
+
 
 

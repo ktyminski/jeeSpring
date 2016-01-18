@@ -17,7 +17,7 @@ import com.mieszkaniabaza.domain.Wynajmujacy;
 import com.mieszkaniabaza.service.WynajmujacyManager;
 import com.mieszkaniabaza.service.MieszkaniaManager;
 
-@WebServlet(urlPatterns = "/PokazWynajmujacy/*")
+@WebServlet(urlPatterns = "/PodgladWynajmujacy/*")
 public class showWynajmujacyServlet extends HttpServlet{
     @EJB
     private WynajmujacyManager wm = new WynajmujacyManager();
@@ -25,7 +25,7 @@ public class showWynajmujacyServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String link = request.getPathInfo();
-	request.setAttribute("WynajmujacyId", link.substring(link.lastIndexOf("/") + 1, link.length()));
-        request.getRequestDispatcher("/wynajmujacy/show.jsp").forward(request, response);
+	request.setAttribute("wynajmujacyId", link.substring(link.lastIndexOf("/") + 1, link.length()));
+        request.getRequestDispatcher("/wynajmujacy/podglad.jsp").forward(request, response);
     }
 }

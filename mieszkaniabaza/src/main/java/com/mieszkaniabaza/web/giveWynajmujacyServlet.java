@@ -17,7 +17,7 @@ public class giveWynajmujacyServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //request.setAttribute("wynajmujacy", wm.dajWszystkie());
-        request.getRequestDispatcher("data/wynajmujacy.jsp").forward(request, response);
+      
+        request.getRequestDispatcher("dane/wynajmujacy.jsp").forward(request, response);
     }
 }

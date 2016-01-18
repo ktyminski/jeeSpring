@@ -25,7 +25,7 @@ public class editWynajmujacyServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String link = request.getPathInfo();
-        request.setAttribute("wynajmujacyedited", wm.pobierzPoId(Long.parseLong(link.substring(link.lastIndexOf("/") + 1, link.length()))));
-        request.getRequestDispatcher("/wynajmujacy/edit.jsp").forward(request, response);
+        request.setAttribute("wynajmujacyEdytowana", wm.pobierzPoId(Long.parseLong(link.substring(link.lastIndexOf("/") + 1, link.length()))));
+        request.getRequestDispatcher("/wynajmujacy/edytuj.jsp").forward(request, response);
     }
 }

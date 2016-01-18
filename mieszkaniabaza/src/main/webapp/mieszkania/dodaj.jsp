@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    
     	<jsp:include page="../elementy/head.jsp" />
 	<jsp:include page="../elementy/skrypty.jsp" />
 	
@@ -27,7 +28,7 @@
 								
 							},
 						    success: function() { document.location.replace("${pageContext.request.contextPath}/Mieszkania"); },
- 						    error: function() { alert("Złe dane!"); }
+ 						    error: function() { alert("Zle dane!"); }
 						}		
 						);
 					}
@@ -42,45 +43,50 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="text-center">Dodaj Mieszkanie</h1>
+        <h1 class="text-center">Dodaj mieszkanie</h1>
             	<form data-toggle="validator" method="post" class="form-horizontal">
-
-		    
-
-		        <div class="form-group">
-		         	<label for="wynajmujacy" class="col-sm-2 control-label">Wlasciciel:</label>
+				
+				
+				<div class="form-group">
+		         	<label for="wynajmujacy" class="col-sm-2 control-label">Wynajmujacy:</label>
 				<div class="col-sm-10">
 				         <select type="text" name="wynajmujacy" id="wynajmujacy" class="form-control" required>
-				     		<c:forEach var="wynajmujacyFK" items="${wynajmujacywszystkie}" varStatus="loopCounter">
+				     		<c:forEach var="wynajmujacyFK" items="${WynajmujacyWszystkie}" varStatus="loopCounter">
 						    	<option value="${wynajmujacyFK.id}">${wynajmujacyFK.getNazwisko()}</option>
 					    	</c:forEach>
 					</select>
 				</div>
+		        </div>
+		        
+				<div class="form-group">
+		           	<label for="ulica" class="col-sm-2 control-label">Ulica:</label>
+
+
+
+		            	<div class="col-sm-10">
+		                	<input type="text" name="ulica" id="ulica" class="form-control"/>
+		            	</div>
+		        </div>
+		        
+		        <div class="form-group">
+		           	<label for="cena" class="col-sm-2 control-label">Cena:</label>
+
+		            	<div class="col-sm-10">
+		                	<input type="text" name="cena" id="cena" class="form-control"/>
+		            	</div>
+		        </div>
 				
-				 <div class="form-group">
-		           	<label for="ulica" class="col-sm-2 control-label">ulica:</label>
+		        
 
-		            	<div class="col-sm-10">
-		                	<input type="text" name="ulica" min="2" id="ulica" class="form-control"/>
-		            	</div>
-		        </div>
-		        </div>
-
-		        <div class="form-group">
-		            	<label for="cena" class="col-sm-2 control-label" >Cena:</label>
-
-		            	<div class="col-sm-10">
-		                	<input type="text" pattern="^[0-9]+$|^[0-9]+[.][0-9]+$" name="cena" id="cena" class="form-control" placeholder="0.0" required>
-		            	</div>
-		        </div>
-
-		        <div class="form-group">
+		       <div class="form-group">
 		           	<label for="opis" class="col-sm-2 control-label">Opis:</label>
 
 		            	<div class="col-sm-10">
-		                	<input type="text" name="opis" min="2" id="opis" class="form-control"/>
+		                	<input type="text" name="opis" id="opis" class="form-control"/>
 		            	</div>
 		        </div>
+
+		        
 		        <div class="form-group text-center">
 		                <button id="dodaj" type="submit" class="btn btn-success">Dodaj</button>
 				<a href="${pageContext.request.contextPath}/Mieszkania" class="btn btn-default" role="button">Wróć</a>

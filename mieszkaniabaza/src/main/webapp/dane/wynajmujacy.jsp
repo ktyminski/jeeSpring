@@ -17,7 +17,7 @@
 							success: function(dane)
 							{ 
 								var d = dane.length;
-								var table = document.getElementById("table");
+								var table = document.getElementById("tabela");
 								for (var i = 0; i < d; i++)
 								{
 
@@ -71,7 +71,8 @@
                      <th>Imie</th>
                      <th>Nazwisko</th>
                      <th>Pesel</th>
-                     <th></th>
+                       <th></th>
+                    
               </tr>
 	</table>
     </div>

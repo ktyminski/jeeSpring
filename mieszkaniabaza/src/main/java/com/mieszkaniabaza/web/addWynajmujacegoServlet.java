@@ -18,13 +18,13 @@ import com.mieszkaniabaza.service.WynajmujacyManager;
 import com.mieszkaniabaza.service.MieszkaniaManager;
 
 
-@WebServlet(urlPatterns = "/DodajWynajmujacego")
+@WebServlet(urlPatterns = "/DodajWynajmujacy")
 public class addWynajmujacegoServlet extends HttpServlet{
     @EJB
     private WynajmujacyManager wm = new WynajmujacyManager();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/wynajmujacy/add.jsp").forward(request, response);
+        request.getRequestDispatcher("/wynajmujacy/dodaj.jsp").forward(request, response);
     }
 }

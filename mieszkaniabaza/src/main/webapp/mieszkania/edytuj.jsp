@@ -16,7 +16,7 @@
 						$.ajax
 						(
 						{
-						    url: '${pageContext.request.contextPath}/rest/mieszkania/edytuj/${mieszkaniaedited.getId()}',
+						    url: '${pageContext.request.contextPath}/rest/mieszkania/edytuj/${mieszkaniaEdytowana.getId()}',
 						    type: 'PUT',
 						    data:
 							{
@@ -29,7 +29,7 @@
 								
 							},
 						    success: function() { document.location.replace("${pageContext.request.contextPath}/Mieszkania"); },
- 						    error: function() { alert("Nieprawidłowo wprowadzono dane!"); }
+ 						    error: function() { alert("Złe dane!"); }
 						}	
 						);
 					}
@@ -51,9 +51,9 @@
 		         	<label for="wynajmujacy" class="col-sm-2 control-label">Wynajmujacy:</label>
 				<div class="col-sm-10">
 				         <select type="text" name="wynajmujacy" id="wynajmujacy" class="form-control" required>
-				     		<c:forEach var="wynajmujacyFK" items="${wynajmujacywszystkie}" varStatus="loopCounter">
+				     		<c:forEach var="wynajmujacyFK" items="${mieszkaniaEdytowana}" varStatus="loopCounter">
 						<c:choose>
-						    <c:when test="${trumnaFK.id == mieszkaniaedited.getWynajmujacy().getId()}">
+						    <c:when test="${trumnaFK.id == mieszkaniaEdytowana.getWynajmujacy().getId()}">
 						    	<option value="${wynajmujacyFK.id}" selected="selected">${wynajmujacyFK.getNazwisko()}</option>
 						    </c:when>
 						    <c:otherwise>
@@ -69,7 +69,7 @@
 		           	<label for="opis" class="col-sm-2 control-label" min="2">Ulica:</label>
 
 		            	<div class="col-sm-10">
-		                	<input type="text" name="opis" id="opis" class="form-control" value="${mieszkaniaedited.getUlica()}">
+		                	<input type="text" name="opis" id="opis" class="form-control" value="${mieszkaniaEdytowana.getUlica()}">
 		            	</div>
 		        </div>
 
@@ -77,7 +77,7 @@
 		            	<label for="cena" class="col-sm-2 control-label" >Cena:</label>
 
 		            	<div class="col-sm-10">
-		                	<input type="text" pattern="^[0-9]+$|^[0-9]+[.][0-9]+$" name="cena" id="cena" class="form-control" value="${mieszkaniaedited.getCena()}" placeholder="0.0" required>
+		                	<input type="text" pattern="^[0-9]+$|^[0-9]+[.][0-9]+$" name="cena" id="cena" class="form-control" value="${mieszkaniaEdytowana.getCena()}" placeholder="0.0" required>
 		            	</div>
 		        </div>
 
@@ -85,7 +85,7 @@
 		           	<label for="opis" class="col-sm-2 control-label" min="2">Opis:</label>
 
 		            	<div class="col-sm-10">
-		                	<input type="text" name="opis" id="opis" class="form-control" value="${mieszkaniaedited.getOpis()}">
+		                	<input type="text" name="opis" id="opis" class="form-control" value="${mieszkaniaEdytowana.getOpis()}">
 		            	</div>
 		        </div>
 		        <div class="form-group text-center">

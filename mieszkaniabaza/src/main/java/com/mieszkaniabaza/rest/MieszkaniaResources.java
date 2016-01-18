@@ -31,15 +31,15 @@ import javax.ws.rs.PUT;
 @Path("/mieszkania")
 public class MieszkaniaResources{
     @EJB
-    private MieszkaniaManager pm;
+    private MieszkaniaManager mm;
     @EJB
-    private WynajmujacyManager tm;
+    private WynajmujacyManager wm;
 
     @GET
     @Path("/dajWszystkie")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Mieszkania> dajMieszkaniay() {
-    	 return pm.dajWszystkie();
+    public List<Mieszkania> dajMieszkania() {
+    	 return mm.dajWszystkie();
     }
 
     @POST
@@ -47,20 +47,20 @@ public class MieszkaniaResources{
     @Produces(MediaType.APPLICATION_JSON)
     public Mieszkania dodaj(
             
-            @FormParam("wlasciciel") Long wlasciciel,
+            @FormParam("wynajmujacy") Long wynajmujacy,
             @FormParam("ulica") String ulica,
-            @FormParam("cena") Double cena,
+            @FormParam("cena") Integer cena,
 	    @FormParam("opis") String opis)
     {
 	Mieszkania mieszkania = new Mieszkania();
 
 
-	mieszkania.setWynajmujacy(tm.pobierzPoId(wlasciciel));
+	mieszkania.setWynajmujacy(wm.pobierzPoId(wynajmujacy));
 	mieszkania.setUlica(ulica);
 	mieszkania.setCena(cena);
 	mieszkania.setOpis(opis);
 
-	pm.dodaj(mieszkania);
+	mm.dodaj(mieszkania);
 
        return mieszkania;
     }
@@ -70,22 +70,15 @@ public class MieszkaniaResources{
     @Produces(MediaType.APPLICATION_JSON)
     public Mieszkania edytuj(
             @PathParam("id") Long id,
-            @FormParam("wlasciciel") Long wlasciciel,
+            @FormParam("wynajmujacy") Long wynajmujacy,
             @FormParam("ulica") String ulica,
-            @FormParam("cena") Double cena,
+            @FormParam("cena") Integer cena,
 	    @FormParam("opis") String opis)
     {
 	Mieszkania mieszkania = new Mieszkania();
 
-	mieszkania = pm.pobierzPoId(id);
-	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-	try
-	{
-		pm.edytuj(mieszkania,tm.pobierzPoId(wlasciciel), ulica, cena, opis);
-	}
-	catch(Exception e)
-	{
-	}
+	mieszkania = mm.pobierzPoId(id);
+	
 
        return mieszkania;
     }
@@ -97,14 +90,14 @@ public class MieszkaniaResources{
     {
         Mieszkania mieszkania = new Mieszkania();
 
-        pm.usun(pm.pobierzPoId(id));
+        mm.usun(mm.pobierzPoId(id));
     }
 
     @GET
     @Path("/podglad/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Mieszkania podglad(@PathParam("id") long id) {
-    	 return pm.pobierzPoId(id);
+    	 return mm.pobierzPoId(id);
     }
 }
 

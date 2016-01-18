@@ -12,14 +12,12 @@
 			$.ajax
 				(
 					{
-						url: '${pageContext.request.contextPath}/rest/mieszkania/podglad/${mieszkaniaId}',
+						url: '${pageContext.request.contextPath}/rest/wynajmujacy/podglad/${wynajmujacyId}',
 						type: 'GET',
 						success: function(w) { 
-										
-										document.getElementById('pole1').innerHTML = w.wynajmujacy;
-										document.getElementById('pole2').innerHTML = w.ulica;
-										document.getElementById('pole3').innerHTML = w.cena;
-										document.getElementById('pole4').innerHTML = w.opis;
+										document.getElementById('pole1').innerHTML = w.imie;
+										document.getElementById('pole2').innerHTML = w.nazwisko;
+										document.getElementById('pole3').innerHTML = w.pesel;
 									}
 					}	
 				);
@@ -35,9 +33,9 @@
 						$.ajax
 						(
 						{
-						    url: '${pageContext.request.contextPath}/rest/mieszkania/usun/${mieszkaniaId}',
+						    url: '${pageContext.request.contextPath}/rest/wynajmujacy/usun/${wynajmujacyId}',
 						    type: 'DELETE',
-						    success: function() { document.location.replace("${pageContext.request.contextPath}/Mieszkania"); }
+						    success: function() { document.location.replace("${pageContext.request.contextPath}/Wynajmujacy"); }
 						}	
 						);
 					}
@@ -52,26 +50,21 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="text-center">Mieszkanie</h1>
+        <h1 class="text-center">Wynajmujacy</h1>
         <br/>
 
-        
-        <label>Wynajmujacy:</label>
+        <label>Imie:</label>
         <div id = "pole1" class="well well-sm"></div>
-        
-        <label>Ulica:</label>
+
+        <label>Nazwisko:</label>
         <div id = "pole2" class="well well-sm"></div>
-        
 
-        <label>Cena:</label>
+        <label>Pesel:</label>
         <div id = "pole3" class="well well-sm"></div>
-
-        <label>Opis:</label>
-        <div id = "pole4" class="well well-lg"></div>
 	<div class="form-group text-center">
-		                <a href="${pageContext.request.contextPath}/EdytujMieszkania/${mieszkaniaId}" class="btn btn-primary" role="button">Edytuj</a>
+		                <a href="${pageContext.request.contextPath}/EdytujWynajmujacy/${wynajmujacyId}" class="btn btn-primary" role="button">Edytuj</a>
 		                <button id="usun" type="submit" class="btn btn-danger">Usuń</button>
-				<a href="${pageContext.request.contextPath}/Mieszkania" class="btn btn-default" role="button">Wróć</a>
+				<a href="${pageContext.request.contextPath}/Wynajmujacy" class="btn btn-default" role="button">Wróć</a>
     	</div>
     </div>
 

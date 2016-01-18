@@ -17,7 +17,7 @@ public class giveMieszkaniayServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //request.setAttribute("mieszkania", mm.dajWszystkie());
-        request.getRequestDispatcher("data/mieszkania.jsp").forward(request, response);
+       
+        request.getRequestDispatcher("dane/mieszkania.jsp").forward(request, response);
     }
 }

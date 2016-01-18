@@ -17,7 +17,7 @@ import com.mieszkaniabaza.domain.Wynajmujacy;
 import com.mieszkaniabaza.service.WynajmujacyManager;
 import com.mieszkaniabaza.service.MieszkaniaManager;
 
-@WebServlet(urlPatterns = "/DodajMieszkanie")
+@WebServlet(urlPatterns = "/DodajMieszkania")
 public class addMieszkanieServlet extends HttpServlet{
     @EJB
     private MieszkaniaManager mm;
@@ -26,8 +26,8 @@ public class addMieszkanieServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        request.getRequestDispatcher("/mieszkania/add.jsp").forward(request, response);
+    	  request.setAttribute("WynajmujacyWszystkie", wm.dajWszystkie());
+        request.getRequestDispatcher("/mieszkania/dodaj.jsp").forward(request, response);
     }
 
 }
