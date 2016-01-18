@@ -52,6 +52,7 @@ public class Mieszkania {
 
 	@ManyToOne
 	@JoinColumn(name = "id_wynajmujacy", nullable = false)
+	
 	public Wynajmujacy getWynajmujacy() {
 	return wynajmujacy;
 	}

@@ -26,7 +26,8 @@ public class editMieszkaniaServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String link = request.getPathInfo();
-        request.setAttribute("mieszkaniaEdytowana", wm.pobierzPoId(Long.parseLong(link.substring(link.lastIndexOf("/") + 1, link.length()))));
+        request.setAttribute("mieszkaniaEdytowana", mm.pobierzPoId(Long.parseLong(link.substring(link.lastIndexOf("/") + 1, link.length()))));
+        request.setAttribute("mieszkaniaWszystkie", wm.dajWszystkie());
         request.getRequestDispatcher("/mieszkania/edytuj.jsp").forward(request, response);
     }
 }

@@ -16,7 +16,7 @@
 						type: 'GET',
 						success: function(w) { 
 										
-										document.getElementById('pole1').innerHTML = w.wynajmujacy;
+										document.getElementById('pole1').innerHTML = w.wynajmujacy.nazwisko;
 										document.getElementById('pole2').innerHTML = w.ulica;
 										document.getElementById('pole3').innerHTML = w.cena;
 										document.getElementById('pole4').innerHTML = w.opis;
